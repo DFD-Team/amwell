@@ -1,0 +1,15 @@
+export default {
+    amwell_visit_console_chat_button_text: 'Chat',
+    amwell_visit_console_notes_button_text: 'Visit Notes',
+    amwell_visit_console_invite_button_text: 'Invite',
+    amwell_visit_console_reload_button_text: 'Reload',
+    amwell_visit_console_drawer_chat_title: 'Chat',
+    amwell_visit_console_drawer_notes_title: 'Visit Notes',
+    amwell_visit_console_drawer_invite_title: 'Invite Guest',
+    amwell_visit_console_visit_extension_continue: 'Continue',
+    amwell_visit_console_visit_extension_cancel: 'Cancel',
+    amwell_visit_console_visit_extension_title: 'Would you like to Extend the Visit?',
+    amwell_visit_console_visit_extension_message: 'There is an extension fee of {cost} to extend the visit. Would you like to continue?',
+    amwell_visit_console_drawer_tyto_button_text: 'Tyto Device',
+    amwell_visit_console_drawer_tyto_header_text: 'Tyto Device',
+};

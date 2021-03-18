@@ -1,0 +1,565 @@
+/*!
+ * American Well Visit Console Widget
+ *
+ * Copyright © 2019 American Well.
+ * All rights reserved.
+ *
+ * It is illegal to use, reproduce or distribute
+ * any part of this Intellectual Property without
+ * prior written authorization from American Well.
+ */
+
+.visit-container {
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+}
+
+.visit-body {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  flex: 1;
+}
+
+.visit-header {
+  height: 72px;
+  flex-shrink: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  z-index: 23;
+  padding: 0 24px;
+}
+
+.header-disabled .visit-header {
+  display: none;
+}
+
+.video-console {
+  flex: 1;
+  height: 100%;
+}
+
+/* visit timer */
+
+.visit-timer {
+  font-size: 16px;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  height: 72px;
+  pointer-events: none;
+  transition: 200ms;
+}
+
+.header-disabled .visit-timer {
+  z-index: 1;
+  height: unset;
+  margin-top: 16px;
+}
+
+.header-disabled.sidebar-enabled .visit-timer {
+  left: 96px;
+  right: 0;
+}
+
+.header-disabled.sidebar-enabled.drawer-open .visit-timer {
+  left: 604px;
+  right: 0;
+}
+
+[dir='rtl'].header-disabled.sidebar-enabled.drawer-open .visit-timer {
+  right: 604px;
+  left: 0;
+}
+
+.header-disabled .visit-timer span {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.54); /* add border around timer */
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* The console Drawers */
+
+.visit-drawer {
+  height: 100%;
+  width: 508px;
+  background: #fff;
+  z-index: 21;
+  flex-shrink: 1;
+  transition: margin-left 200ms;
+}
+
+[dir='rtl'] .visit-drawer {
+  transition: margin-right 200ms;
+}
+
+.visit-drawer.hidden {
+  position: inherit;
+  width: 508px;
+  clip: unset;
+  height: 100%;
+  margin: 0 0 0 -508px;
+  z-index: -10;
+  white-space: normal;
+}
+
+[dir='rtl'] .visit-drawer.hidden {
+  margin: 0 -508px 0 0;
+}
+
+.drawer-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.visit-drawer-header {
+  flex-shrink: 0;
+  display: flex;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  padding-bottom: 13px;
+  justify-content: space-between;
+  border-bottom: solid 1.1px #d8d8d8;
+}
+
+.visit-drawer-title {
+  color: #313336;
+}
+
+.visit-drawer-close-button {
+  fill: #464646;
+  cursor: pointer;
+}
+
+amwell-visit-notes,
+amwell-chat-window,
+amwell-guest-invite {
+  flex-grow: 1;
+}
+
+.side-shadow {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* The side bar*/
+
+.visit-sidebar {
+  width: 96px;
+  flex-shrink: 0;
+  background: var(--amwell-visit-console-bar-color, #63788d) !important;
+  z-index: 22;
+  height: 100%;
+}
+
+.sidebar-disabled .visit-sidebar {
+  display: none;
+}
+
+.drawer-button {
+  position: relative;
+  height: 90px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #ffffff;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.drawer-icon {
+  padding: 4px;
+}
+
+.drawer-button-label {
+  white-space: nowrap;
+}
+
+.drawer-button:hover {
+  background-color: rgba(255, 255, 255, 0.17);
+}
+
+.drawer-button.selected,
+.drawer-button.selected:hover {
+  background-color: var(--amwell-visit-console-bar-color-selected, rgba(255, 255, 255, 0.9)) !important;
+  color: #313336;
+}
+
+.notification-dot {
+  top: 13px;
+  right: 25px;
+  height: 12px;
+  width: 12px;
+  background-color: #fd5e60;
+  border-radius: 50%;
+  position: absolute;
+  border: solid 2px #ffffff;
+}
+
+.chat-button path {
+  fill: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.chat-button.selected path {
+  fill: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+
+.notes-button g g {
+  stroke: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.notes-button.selected g g {
+  stroke: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+
+.notes-button g rect {
+  fill: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.notes-button.selected g rect {
+  fill: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+
+.notes-button g g:first-child rect {
+  fill: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+
+.notes-button.selected g g:first-child rect {
+  fill: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.invite-button g {
+  stroke: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.invite-button.selected g {
+  stroke: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+
+.tyto-button path {
+  fill: var(--amwell-visit-console-icon-color, #fff) !important;
+}
+
+.tyto-button.selected path {
+  fill: var(--amwell-visit-console-bar-color, #63788d) !important;
+}
+/* Modal */
+
+.visit-console-modal-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.visit-console-modal {
+  border-radius: 10px;
+  flex-shrink: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 500px;
+}
+
+.visit-console-modal-header {
+  background: var(--amwell-visit-console-bar-color, #63788d) !important;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: .37px;
+  position: relative;
+  padding: 25px 50px;
+}
+
+.visit-console-modal-header button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTEwLjk0MyAxMkw0IDUuMDU3IDUuMDU3IDQgMTIgMTAuOTQzIDE4Ljk0MyA0IDIwIDUuMDU3IDEzLjA1NyAxMiAyMCAxOC45NDMgMTguOTQzIDIwIDEyIDEzLjA1NyA1LjA1NyAyMCA0IDE4Ljk0MyAxMC45NDMgMTJ6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==") no-repeat center;
+  border: none;
+  outline: none;
+  right: 24px;
+  cursor: pointer;
+}
+
+[dir='rtl'] .visit-console-modal-header button {
+  left: 28px;
+  right: unset;
+}
+
+.visit-console-modal-header button:hover {
+  opacity: .8;
+}
+
+.visit-console-modal-body {
+  padding: 50px;
+  background: #fff;
+  flex: 1;
+  color: #313336;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.visit-console-modal-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.visit-console-modal-buttons button {
+  cursor: pointer;
+  height: 44px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: var(--amwell-visit-console-button-border-radius, 4px) !important;
+  font-size: 20px;
+  font-weight: 600;
+  width: 120px;
+  padding: 8px;
+  margin: 10px;
+  background: var(--amwell-visit-console-button-color, #1774CC) !important;
+  flex-shrink: 0;
+}
+
+.visit-console-modal-buttons button:hover {
+  background: var(--amwell-visit-console-button-color-hover, #156bbd) !important;
+}
+
+/* mobile & bottom drawer*/
+
+.bottom-drawer {
+  position: absolute;
+  bottom: -210px;
+  right: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  transition: bottom 200ms;
+  height: 265px;
+  z-index: 2;
+}
+
+.bottom-drawer-open .bottom-drawer {
+  bottom: 0;
+}
+
+.bottom-drawer-button {
+  width: 92px;
+  height: 27px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.bottom-drawer-button {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MiIgaGVpZ2h0PSIyNiIgdmlld0JveD0iMCAwIDkyIDI2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjg4Ij4KICAgICAgICA8cGF0aCBmaWxsPSIjNDY0NjQ2IiBkPSJNMCAyNkMyMi44NjMgMjYgMTkuNDMzIDAgNDUuNzI3IDAgNzIuMDIgMCA2OC41OSAyNiA5MS40NTMgMjZIMHoiLz4KICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNMzcuNSAyMS45ODVsNy43NzgtNy43NzhhMSAxIDAgMCAxIDEuNDE0IDBsNy43NzkgNy43NzgiLz4KICAgIDwvZz4KPC9zdmc+Cg==") no-repeat bottom;
+  background-size: cover;
+}
+
+.bottom-drawer-open .bottom-drawer-button {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MiIgaGVpZ2h0PSIyNiIgdmlld0JveD0iMCAwIDkyIDI2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjg4Ij4KICAgICAgICA8cGF0aCBmaWxsPSIjNDY0NjQ2IiBkPSJNMCAyNkMyMi44NjMgMjYgMTkuNDMzIDAgNDUuNzI3IDAgNzIuMDIgMCA2OC41OSAyNiA5MS40NTMgMjZIMHoiLz4KICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNNTQuNDcgMTQuOTg1bC03Ljc3OCA3Ljc3OGExIDEgMCAwIDEtMS40MTQgMEwzNy41IDE0Ljk4NSIvPgogICAgPC9nPgo8L3N2Zz4K") no-repeat bottom;
+  background-size: cover;
+}
+
+.bottom-drawer-content {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  flex-grow: 1;
+  width: 100%;
+  background-color: rgba(70, 70, 70, 0.88);
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-drawer-buttons {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.bottom-drawer-content .drawer-button {
+  position: relative;
+  height: 90px;
+  width: 70px;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+  font-size: 11px;
+  color: #ffffff;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bottom-drawer-content .drawer-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  border: solid 2px rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-drawer-content .drawer-button:hover {
+  background: unset;
+}
+
+.bottom-drawer-content .drawer-button:active .drawer-icon {
+  opacity: .5;
+}
+
+/*ensure the BOTTOM drawer buttons are still white even though their sidebar cousins are themeable*/
+.bottom-drawer-content .chat-button path {
+  fill: #fff !important;
+}
+
+.bottom-drawer-content .notes-button g g {
+  stroke: #fff !important;
+}
+
+.bottom-drawer-content .notes-button g rect {
+  fill: #fff !important;
+}
+
+.bottom-drawer-content .notes-button g g:first-child rect {
+  fill: transparent !important;
+}
+
+.bottom-drawer-content .invite-button g {
+  stroke: #fff !important;
+}
+
+.bottom-drawer-content .tyto-button path {
+  fill: #fff !important;
+}
+
+.bottom-drawer-content .reload-button path,
+.bottom-drawer-content .reload-button mask {
+  fill: #fff !important;
+}
+
+@media screen and (max-width: 768px) {
+  .visit-sidebar {
+    display: none;
+  }
+
+  .visit-drawer {
+    max-width: 508px;
+    width: 100%;
+  }
+
+  .visit-drawer.hidden {
+    position: absolute;
+    transition: none;
+  }
+  .visit-timer {
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  .header-enabled .visit-timer {
+    padding: 0 24px;
+    justify-content: flex-start;
+  }
+
+  .header-enabled .visit-timer,
+  .visit-header {
+    height: 49px;
+  }
+
+  .header-disabled .visit-timer {
+    transition: none;
+  }
+
+  .logo-container {
+    display: none;
+  }
+
+  .bottom-drawer {
+    display: flex;
+  }
+
+  .notification-dot {
+    top: 15px;
+    right: 15px;
+    height: 10px;
+    width: 10px;
+    border: none;
+  }
+
+}
+
+@media screen and (max-width: 440px) {
+  .header-disabled .visit-timer {
+    justify-content: end;
+    padding: 0 16px;
+    margin-top: 165px;
+  }
+
+  .visit-console-modal-body {
+    padding: 20px;
+  }
+
+  .visit-console-modal-buttons {
+    margin-top: 20px;
+  }
+
+  .visit-console-modal {
+    margin: 0 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .visit-console-modal-buttons {
+    flex-wrap: wrap;
+  }
+
+  .visit-console-modal-buttons button {
+    margin: 8px 0;
+    width: 100%;
+  }
+}

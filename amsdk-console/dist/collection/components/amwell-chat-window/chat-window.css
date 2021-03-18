@@ -1,0 +1,274 @@
+/*!
+ * American Well Visit Console Widget
+ *
+ * Copyright © 2019 American Well.
+ * All rights reserved.
+ *
+ * It is illegal to use, reproduce or distribute
+ * any part of this Intellectual Property without
+ * prior written authorization from American Well.
+ */
+
+:host,
+amwell-chat-window {
+  position: relative;
+}
+
+/* The Chat window itself*/
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  top:  0;
+  bottom:  0;
+  right:  0;
+  left:  0;
+  position: absolute;
+}
+
+.transcript {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding: 0 24px;
+  overflow-x: hidden;
+}
+
+
+/* The individual chat items */
+
+.chat-item {
+  margin: 6px 0;
+  display: flex;
+}
+
+.chat-item.self-message {
+  flex-direction: row-reverse;
+}
+
+.chat-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 290px;
+}
+
+.self-message .chat-item-content {
+  align-items: flex-end;
+}
+
+.chat-item-subtitle {
+  color: #747481;
+  font-size: 12px;
+  display: flex;
+  margin-top: 8px;
+}
+
+.self-message .chat-item-subtitle {
+  flex-direction: row-reverse;
+}
+
+.chat-item-bubble {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.self-message .chat-item-bubble {
+  flex-direction: row;
+}
+
+.chat-item-message {
+  background-color: var(--amwell-visit-console-chat-their-messages, #f0f0f0) !important;
+  padding: 13px 20px;
+  color: #313336;
+  font-size: 14px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.self-message .chat-item-message {
+  background-color: var(--amwell-visit-console-chat-my-messages, #1774cc) !important;
+  color: #fff;
+}
+
+[dir='rtl'] .self-message .chat-item-message,
+.chat-item-message {
+  border-radius: 16px 16px 16px 0;
+}
+
+[dir='rtl'] .chat-item-message,
+.self-message .chat-item-message {
+  border-radius: 16px 16px 0 16px;
+}
+
+.chat-item-tail-outer {
+  width: 10px;
+  background-color: var(--amwell-visit-console-chat-their-messages, #f0f0f0) !important;
+  flex-shrink: 0;
+}
+
+.self-message .chat-item-tail-outer {
+  background-color: var(--amwell-visit-console-chat-my-messages, #1774cc) !important;
+}
+
+.chat-item-tail-inner {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+[dir='rtl'] .self-message .chat-item-tail-inner,
+.chat-item-tail-inner {
+  border-radius: 0 0 16px 0;
+}
+
+[dir='rtl'] .chat-item-tail-inner,
+.self-message .chat-item-tail-inner {
+  border-radius: 0 0 0 16px;
+}
+
+.admin-message {
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 32px 0;
+  font-size: 14px;
+  color: #727274;
+  word-break: break-word;
+}
+
+.admin-message h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #313336;
+}
+
+.admin-message-border {
+  border-radius: 8px;
+  border: solid 1px #d6d6d6;
+}
+
+/* The 'New Messages' toast/popup */
+
+.new-message-toast-container {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.new-message-toast {
+  display: flex;
+  justify-content: center;
+  background-color: #313336;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 22px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.new-message-toast:hover {
+  opacity: .9;
+}
+
+.new-message-toast div {
+  margin: 0 5px;
+}
+
+.chevron::before {
+  border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
+  content: '';
+  display: block;
+  height: .3em;
+  width: .3em;
+  margin-top: 6px;
+}
+
+.chevron.down:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* The large chat icon in the window */
+
+.chat-icon-bumper {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -20px;
+  fill: var(--amwell-visit-console-chat-button-color, #1774CC) !important;
+}
+
+.chat-placeholder {
+  flex-grow: 1;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #747481;
+}
+
+.chat-placeholder div {
+  padding-top: 6px;
+}
+
+.chat-placeholder path {
+  fill: #E1E1E1;
+}
+
+/* Button stuff */
+
+form {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  height: 80px;
+  background-color: #f3f3f3;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+input {
+  flex-grow: 1;
+  min-width: 0;
+  height: 24px;
+  border: none;
+  border-bottom: 1px solid #6f7780;
+  outline: none;
+  font-size: 16px;
+  padding: 16px 10px;
+  margin: 0 12px;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: unset;
+  height: unset;
+  padding: unset;
+  margin: 0 12px;
+}
+
+button path {
+  fill: var(--amwell-visit-console-chat-button-color, #1774cc) !important;
+}
+
+button:active path,
+button:hover path {
+  fill: var(--amwell-visit-console-chat-button-color-hover, #156bbd) !important;
+}
+
+[dir='rtl'] button svg {
+  transform: scaleX(-1);
+}

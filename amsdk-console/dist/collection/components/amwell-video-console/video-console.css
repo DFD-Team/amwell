@@ -1,0 +1,56 @@
+.video-console {
+  height: 100%;
+}
+
+/* mobile */
+
+@media screen and (max-width: 768px) {
+  .video-console {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .video-console .awcore-top-pane-wrapper {
+    height: 0;
+  }
+
+  /* slightly breaking the rules by referencing amwell-visit-console classes in these selectors */
+  .drawer-open .video-console .awcore-video-container {
+    display: none;
+  }
+
+  .bottom-drawer-open .video-console .awcore-video-controls-container {
+    bottom: 315px;
+  }
+
+  .video-console .awcore-toggle-buttons-container {
+    margin-bottom: 50px;
+    transition: margin-bottom 200ms;
+  }
+
+  .bottom-drawer-open .video-console .awcore-toggle-buttons-container {
+    margin-bottom: 470px;
+  }
+
+  .header-enabled .video-console .awcore-disconnect-call-container {
+    top: -66px;
+  }
+
+  .header-enabled .video-console .awcore-disconnect-button {
+    height: 34px;
+  }
+
+  .video-console .awcore-self-container {
+    min-width: 110px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .video-console .awcore-participant-title-container {
+    width: min-content !important;
+  }
+}
+

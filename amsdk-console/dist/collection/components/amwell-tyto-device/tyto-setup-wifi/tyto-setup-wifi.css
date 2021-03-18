@@ -1,0 +1,37 @@
+.formContainer {
+  margin-top: 15px;
+}
+
+.pleaseProvideYoursText {
+  font-size: 14px;
+  color: #383a3e;
+  margin: 0;
+}
+
+.secretWifiInfo {
+  width: 340px;
+  font-size: 12px;
+  color: #657787;
+}
+
+.password-label {
+  font-size: 14px;
+  position: absolute;
+  top: 15px;
+  cursor: pointer;
+  color: #1774cc;
+  right: 15px;
+}
+
+[dir="rtl"] .password-label {
+  left: 15px;
+  right: auto;
+}
+
+.input-group {
+  position: relative;
+}
+
+.floating-label-container.has-focus .floating-label {
+  color: var(--amwell-visit-console-link-color, #1774cc);
+}
