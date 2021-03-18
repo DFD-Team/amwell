@@ -1,0 +1,30 @@
+{
+  "name": "awsdk",
+  "version": "3.1.1",
+  "description": "American Well Consumer Web SDK Library",
+  "main": "lib/awsdk.js",
+  "module": "index.js",
+  "files": [
+    "lib/**/*",
+    "README.md",
+    "LICENSE",
+    "index.js",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "awsdk"
+  ],
+  "author": "sdk.support@americanwell.com",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://sdk.americanwell.com",
+  "dependencies": {
+    "@babel/runtime": "^7.4.2",
+    "compare-versions": "^3.4.0",
+    "he": "^1.1.1",
+    "loglevel": "^1.6.1",
+    "qrcode": "^1.4.4",
+    "url-search-params": "^0.10.0",
+    "uuid": "^3.3.2",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
