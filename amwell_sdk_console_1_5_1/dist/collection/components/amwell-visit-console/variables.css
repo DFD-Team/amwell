@@ -1,0 +1,66 @@
+:root {
+  /**
+  * @prop --amwell-visit-console-button-color: The color of most buttons in the visit console
+  */
+  --amwell-visit-console-button-color: pink;
+  /**
+  * @prop --amwell-visit-console-button-color-hover: The color of most buttons in the visit console when mousing over or hovering
+  */
+  --amwell-visit-console-button-color-hover: deeppink;
+  /**
+  * @prop --amwell-visit-console-button-border-radius: The border radius of all the rectangular buttons in the visit console
+  */
+  --amwell-visit-console-button-border-radius: 4px;
+  /**
+  * @prop --amwell-visit-console-video-button-color: The color of the circular video control buttons in the visit console
+  */
+  --amwell-visit-console-video-button-color: pink;
+  /**
+  * @prop --amwell-visit-console-video-button-color-hover:  The color of the circular video control buttons in the visit console when mousing over or hovering
+  */
+  --amwell-visit-console-video-button-color-hover: deeppink;
+  /**
+* @prop --amwell-visit-console-end-visit-button-color: The color of the end visit button
+*/
+  --amwell-visit-console-end-visit-button-color: pink;
+  /**
+* @prop --amwell-visit-console-end-visit-button-color-hover: The color of the end visit button when mousing over or hovering
+  */
+  --amwell-visit-console-end-visit-button-color-hover: deeppink;
+  /**
+* @prop --amwell-visit-console-chat-button-color: The color of the send message button in the chat window
+*/
+  --amwell-visit-console-chat-button-color: pink;
+  /**
+* @prop --amwell-visit-console-chat-button-color-hover: The color of the send message button in the chat window when mousing over or hovering
+  */
+  --amwell-visit-console-chat-button-color-hover: deeppink;
+  /**
+  * @prop --amwell-visit-console-icon-color: The color of the sidebar icons
+  */
+  --amwell-visit-console-icon-color: green;
+  /**
+  * @prop --amwell-visit-console-bar-color: The color of the sidebar
+  */
+  --amwell-visit-console-bar-color: purple;
+  /**
+  * @prop --amwell-visit-console-bar-color-selected: The color of the sidebar when an icon is selected
+  */
+  --amwell-visit-console-bar-color-selected: maroon;
+  /**
+  * @prop --amwell-visit-console-link-color: The color of all links in the visit console
+  */
+  --amwell-visit-console-link-color: yellow;
+  /**
+  * @prop --amwell-visit-console-link-color-hover: The color of all links in the visit console when mousing over or hovering
+  */
+  --amwell-visit-console-link-color-hover: yellowgreen;
+  /**
+  * @prop --amwell-visit-console-chat-my-messages: The color of chat messages sent from the user
+  */
+  --amwell-visit-console-chat-my-messages: orange;
+  /**
+  * @prop --amwell-visit-console-chat-their-messages: The color of chat messages received by the user
+  */
+  --amwell-visit-console-chat-their-messages: orangered;
+}

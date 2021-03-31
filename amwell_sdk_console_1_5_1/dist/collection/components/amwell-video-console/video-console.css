@@ -1,0 +1,294 @@
+.video-console * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.video-console {
+  height: 100%;
+}
+
+.video-console .awcore-container {
+  height: 100%;
+  min-width: unset;
+  min-height: unset;
+}
+
+.video-console .awcore-top-pane-wrapper {
+  background: none; /* remove background gradient */
+}
+
+.header-enabled .video-console .awcore-top-pane-wrapper {
+  pointer-events: initial !important;
+  opacity: 1 !important;
+}
+
+.header-enabled  .video-console .awcore-disconnect-call-container {
+  position: absolute;
+  top: -82px;
+  padding: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.video-console .awcore-disconnect-call-container {
+  padding: 16px;
+}
+
+/* slight hack to get the video console to play nicely with responsive designs particularly with the dynamic header */
+.video-console .awcore-video-container {
+  height: 0;
+}
+
+.video-console .awcore-participant-subtitle,
+.header-enabled  .video-console .awcore-disconnect-button {
+  opacity: 1 !important;
+  box-shadow: none;
+}
+
+.awcore-disconnect-button {
+  background: var(--amwell-visit-console-end-visit-button-color, #fd6b6b) !important;
+  border-radius: var(--amwell-visit-console-button-border-radius, 4px) !important;
+  outline: none !important;
+}
+
+.awcore-disconnect-button:hover {
+  background: var(--amwell-visit-console-end-visit-button-color-hover, #fd6b6b) !important;
+}
+
+.video-console .awcore-self-container {
+  right: 16px;
+  top: 76px;
+}
+
+[dir='rtl'] .video-console .awcore-self-container {
+  right: unset;
+  left: 16px;
+}
+
+.header-enabled .video-console .awcore-self-container {
+  top: 16px;
+}
+
+.video-console h4.awcore-participant-subtitle {
+  margin: 0;
+}
+
+.video-console .awcore-call-me-div {
+  min-width: unset;
+  white-space: nowrap;
+  background-color: var(--amwell-visit-console-button-color, #1774cc) !important;
+  outline: none !important;
+}
+
+.video-console .awcore-call-me-div:hover {
+  background-color: var(--amwell-visit-console-button-color-hover, #156bbd) !important;
+}
+
+.video-console .awcore-spinner-container {
+  max-width: 100%;
+}
+
+.awcore-settings-container .awcore-control-button,
+.awcore-toggle-buttons-container .awcore-control-button,
+.awcore-far-control-container .awcore-control-button {
+  background-color: #5b6b7b !important;
+  outline: none !important;
+}
+
+.awcore-toggle-buttons-container .awcore-camera-button.awcore-disabled,
+.awcore-toggle-buttons-container .awcore-mic-button.awcore-disabled,
+.awcore-toggle-buttons-container .awcore-screenshare-button.awcore-disabled,
+.awcore-toggle-buttons-container .awcore-mic-button.awcore-disabled:hover,
+.awcore-toggle-buttons-container .awcore-screenshare-button.awcore-disabled:hover,
+.awcore-toggle-buttons-container .awcore-camera-button.awcore-disabled:hover {
+  border: 1px solid #5b6b7b !important;
+  background-color: #5b6b7b !important;
+}
+
+.awcore-hide-self-video,
+.awcore-toggle-buttons-container .awcore-mic-button,
+.awcore-toggle-buttons-container .awcore-camera-button,
+.awcore-toggle-buttons-container .awcore-screenshare-button {
+  outline: none !important;
+  border: 1px solid var(--amwell-visit-console-video-button-color, #1774cc) !important;
+  background-color: var(--amwell-visit-console-video-button-color, #1774cc) !important;
+}
+
+.awcore-hide-self-video:active,
+.awcore-toggle-buttons-container .awcore-mic-button.awcore-disabled:active,
+.awcore-toggle-buttons-container .awcore-mic-button:active,
+.awcore-toggle-buttons-container .awcore-camera-button:active,
+.awcore-toggle-buttons-container .awcore-camera-button.awcore-disabled:active {
+  background-color: var(--amwell-visit-console-video-button-color-hover, #156bbd) !important;
+  border: 2px solid #ffc33e !important;
+}
+
+
+.video-console .awcore-loading-icon-static {
+  fill: var(--amwell-visit-console-button-color, #1774cc) !important;
+}
+
+.video-console .awcore-spinner-button {
+  background-color: var(--amwell-visit-console-button-color, #1774cc) !important;
+  border-radius: var(--amwell-visit-console-button-border-radius, 4px) !important;
+}
+
+.video-console .awcore-modal-container {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.video-console .awcore-modal {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.video-console .awcore-modal-header {
+  background: var(--amwell-visit-console-bar-color, #63788d) !important;
+  justify-content: center;
+  position: relative;
+}
+
+.video-console .awcore-modal-header h5 {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.video-console .awcore-modal button,
+.video-console .awcore-modal .awcore-disregard-end-button,
+.video-console .awcore-modal .awcore-confirm-end-button {
+  box-shadow: none;
+  background: var(--amwell-visit-console-button-color, #1774cc) !important;
+  border-radius: var(--amwell-visit-console-button-border-radius, 4px) !important;
+  outline: none;
+}
+
+.video-console .awcore-modalClose {
+  position: absolute;
+  right: 24px;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTEwLjk0MyAxMkw0IDUuMDU3IDUuMDU3IDQgMTIgMTAuOTQzIDE4Ljk0MyA0IDIwIDUuMDU3IDEzLjA1NyAxMiAyMCAxOC45NDMgMTguOTQzIDIwIDEyIDEzLjA1NyA1LjA1NyAyMCA0IDE4Ljk0MyAxMC45NDMgMTJ6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==") no-repeat center;
+  width: 24px;
+  height: 24px;
+}
+
+.video-console .awcore-switch-camera {
+  border-color: #5b6b7b;
+}
+
+.video-console .awcore-participant-title-container {
+  max-width: calc(100% - 156px);
+}
+@media (orientation: landscape) {
+  .video-console .awcore-participant-title-container {
+    max-width: calc(50% - 64px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video-console {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .video-console .awcore-top-pane-wrapper {
+    height: 0;
+  }
+
+  /* slightly breaking the rules by referencing amwell-visit-console classes in these selectors */
+  .drawer-open .video-console .awcore-video-container {
+    display: none;
+  }
+
+  .bottom-drawer-open .video-console .awcore-video-controls-container {
+    bottom: 315px;
+  }
+
+  .video-console .awcore-toggle-buttons-container {
+    margin-bottom: 50px;
+    transition: margin-bottom 200ms;
+  }
+
+  .bottom-drawer-open .video-console .awcore-toggle-buttons-container {
+    margin-bottom: 470px;
+  }
+
+  .header-enabled .video-console .awcore-disconnect-call-container {
+    top: -66px;
+  }
+
+  .header-enabled .video-console .awcore-disconnect-button {
+    height: 34px;
+  }
+
+  .video-console .awcore-self-container {
+    min-width: 110px;
+  }
+
+  @media (orientation: landscape) and (max-height: 440px) {
+    .video-console .awcore-bottom-pane-wrapper {
+      align-items: flex-end;
+    }
+
+    .video-console .awcore-toggle-buttons-container {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (any-hover: hover) {
+  .awcore-hide-self-video:hover,
+  .awcore-toggle-buttons-container .awcore-mic-button:hover,
+  .awcore-toggle-buttons-container .awcore-camera-button:hover {
+    border: 1px solid var(--amwell-visit-console-video-button-color-hover, #156bbd) !important;
+    background-color: var(--amwell-visit-console-video-button-color-hover, #156bbd) !important;
+  }
+}
+
+@media (any-hover: hover) {
+  .video-console .awcore-spinner-button:hover {
+    background-color: var(--amwell-visit-console-button-color-hover, #156bbd) !important;
+  }
+}
+
+@media (any-hover: hover) {
+  .video-console .awcore-modal button,
+  .video-console .awcore-modal .awcore-disregard-end-button:hover,
+  .video-console .awcore-modal .awcore-confirm-end-button:hover {
+    opacity: 1;
+    background: var(--amwell-visit-console-button-color-hover, #156bbd) !important;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .video-console .awcore-modal {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .video-console .awcore-modal-body {
+    padding: 20px;
+  }
+
+  .video-console .awcore-modal-footer {
+    padding: 0 20px 20px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .video-console .awcore-modal-footer {
+    flex-wrap: wrap;
+  }
+
+  .video-console .awcore-modal button {
+    margin: 8px 0;
+    width: 100%;
+  }
+}
+
