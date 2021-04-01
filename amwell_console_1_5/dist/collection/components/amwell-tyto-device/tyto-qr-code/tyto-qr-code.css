@@ -1,0 +1,26 @@
+.scanQrCodeText {
+  font-size: 14px;
+  color: #313336;
+}
+
+.rescanQrCodeText {
+  font-size: 14px;
+  font-weight: bold;
+  color: #383a3e;
+}
+
+.qrcode_img canvas {
+  display: block;
+  margin: 0 auto;
+  width: 139px !important;
+  height: 139px !important;
+}
+
+.tytoLoadingSpinnerMsg {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.07px;
+  margin-top: 35px;
+}

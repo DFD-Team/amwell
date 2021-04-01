@@ -1,0 +1,27 @@
+{
+  "entries": [
+    "components/amwell-chat-window/chat-window.js",
+    "components/amwell-guest-invite/guest-invite.js",
+    "components/amwell-tyto-device/amwell-tyto-device.js",
+    "components/amwell-tyto-device/tyto-device/tyto-device.js",
+    "components/amwell-tyto-device/tyto-error-callback/tyto-error-callback.js",
+    "components/amwell-tyto-device/tyto-paired-device/tyto-paired-device.js",
+    "components/amwell-tyto-device/tyto-pairing-fail/tyto-pairing-fail.js",
+    "components/amwell-tyto-device/tyto-qr-code/tyto-qr-code.js",
+    "components/amwell-tyto-device/tyto-regenerate-qr/tyto-regenerate-qr.js",
+    "components/amwell-tyto-device/tyto-setup-wifi/tyto-setup-wifi.js",
+    "components/amwell-tyto-device/tyto-stepper/tyto-stepper.js",
+    "components/amwell-video-console/video-console.js",
+    "components/amwell-visit-console/visit-console.js",
+    "components/amwell-visit-notes/visit-notes.js",
+    "components/floating-label-input/floating-label-input.js",
+    "components/loading-spinner/loading-spinner.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.9.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "collections": [],
+  "bundles": []
+}

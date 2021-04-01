@@ -1,0 +1,117 @@
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+amwell-tyto-device {
+  padding: 24px;
+}
+
+.tyto-msg-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+.tyto-msg-wrapper img {
+  width: 111px;
+  height: 109px;
+}
+
+[dir="rtl"] .tyto-msg-wrapper {
+  margin-right: 15px;
+}
+
+.tyto-message-details {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 12px;
+  position: relative;
+  width: 72%;
+}
+
+
+.tyto-message-details a{
+  text-decoration: none;
+}
+
+.tyto-message-details.full_width {
+  width: 100%;
+} 
+
+[dir="rtl"] .tyto-message-details {
+  margin-right: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  color: #383a3e;
+  font-weight: 600;
+  display: block;
+  margin: 0;
+}
+
+.tyto-message-details p {
+  font-size: 16px;
+  margin: 0;
+  color: #313336;
+}
+
+.buttons-container {
+  display: flex;
+  flex-flow: row;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.buttons-container button {
+  margin: 25px auto 0;
+  min-height: 44px;
+  width: 200px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.buttons-container button.blueBtn {
+  background: var(--amwell-visit-console-button-color, #1774cc);
+}
+
+.buttons-container button.whiteBtn {
+  background: #ffffff;
+  color: #1774cc;
+  border:1px solid  #1774cc;
+}
+
+.buttons-container button.whiteBtn:hover {
+  background: whitesmoke;
+  color: #156bbd;
+  border:1px solid #156bbd;
+}
+
+.buttons-container button.blueBtn:hover {
+  background: var(--amwell-visit-console-button-color-hover, #156bbd);
+}
+
+.buttons-container button.blueBtn:disabled {
+  background: var(--amwell-visit-console-button-color, #1774cc);
+  opacity: 0.4;
+}
+
+.awcore-hiddenControllers .awcore-top-pane-wrapper {
+  height: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .buttons-container{
+    flex-flow: column;
+  }
+}
