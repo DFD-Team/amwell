@@ -1,0 +1,141 @@
+/*!
+ * American Well Visit Console Widget
+ *
+ * Copyright © 2019 American Well.
+ * All rights reserved.
+ *
+ * It is illegal to use, reproduce or distribute
+ * any part of this Intellectual Property without
+ * prior written authorization from American Well.
+ */
+
+:host,
+amwell-visit-notes {
+  position: relative;
+}
+
+.visit-notes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-sections {
+  padding: 0 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.64;
+  color: #313336;
+}
+
+.notes-section-header {
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 9px;
+  border-bottom: 4px solid #e1e1e1;
+  margin-bottom: 20px;
+  margin-top: 37px;
+  line-height: normal;
+}
+
+.notes-entry {
+  margin-bottom: 1em;
+}
+.notes-entry h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.no-notes-placeholder {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-notes-message {
+  width: 40%;
+  font-size: 14px;
+  color: #747481;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.no-notes-icon {
+  background: url("data:image/svg+xml;base64,ICA8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIHZpZXdCb3g9IjAgMCAxMzAgMTMwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSAxKSI+CiAgICAgIDxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjYzLjQ5MiIgc3Ryb2tlPSIjRTFFMUUxIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPHBhdGggZmlsbD0iI0UxRTFFMSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNNTEuMzc0IDM3LjgwNGgtNi4xMTd2NTYuMzY1SDg1LjAzVjM3LjgwNGgtNi4xMTZ2MS4wNTFhNS4zNyA1LjM3IDAgMCAxLTUuMzcgNS4zNjloLTE2LjhhNS4zNyA1LjM3IDAgMCAxLTUuMzctNS4zNjl2LTEuMDUxem0yNy4zNTYtNC4xMTVoNy4xMDNhMy4zMTEgMy4zMTEgMCAwIDEgMy4zMSAzLjMxMnY1Ny45NzNhMy4zMDkgMy4zMDkgMCAwIDEtMy4zMSAzLjMxaC00MS4zOGEzLjMxIDMuMzEgMCAwIDEtMy4zMS0zLjMxVjM3LjAwMWEzLjMxMiAzLjMxMiAwIDAgMSAzLjMxLTMuMzEyaDcuMTA0YTUuMzcyIDUuMzcyIDAgMCAxIDUuMTg3LTMuOTc1aDE2LjhhNS4zNzIgNS4zNzIgMCAwIDEgNS4xODYgMy45NzV6bS0yMS45ODYuMTRjLS42OTMgMC0xLjI1Ni41NjEtMS4yNTYgMS4yNTR2My43NzJjMCAuNjkyLjU2MyAxLjI1NSAxLjI1NiAxLjI1NWgxNi44Yy42OTIgMCAxLjI1NC0uNTYzIDEuMjU0LTEuMjU1di0zLjc3MmMwLS42OTMtLjU2Mi0xLjI1NC0xLjI1NS0xLjI1NGgtMTYuOHptLTEuODg3IDIxLjAyOEg3NS40M2EyLjI4NiAyLjI4NiAwIDAgMSAwIDQuNTcySDU0Ljg1N2EyLjI4NiAyLjI4NiAwIDAgMSAwLTQuNTcyem0wIDExLjQyOUg3NS40M2EyLjI4NCAyLjI4NCAwIDAgMSAyLjI4NSAyLjI4NSAyLjI4NCAyLjI4NCAwIDAgMS0yLjI4NSAyLjI4Nkg1NC44NTdhMi4yODYgMi4yODYgMCAwIDEgMC00LjU3MXptMCAxMS40MjhINzUuNDNBMi4yODQgMi4yODQgMCAwIDEgNzcuNzE0IDgwYTIuMjg0IDIuMjg0IDAgMCAxLTIuMjg1IDIuMjg2SDU0Ljg1N2EyLjI4NiAyLjI4NiAwIDAgMSAwLTQuNTcyeiIvPgogICAgPC9nPgogIDwvc3ZnPg==") no-repeat center;
+  width: 130px;
+  height: 130px;
+}
+
+/* Anchor links */
+
+.notes-anchors {
+  margin-top: -1px; /* small hack to cover up border of section header */
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f9f9fa;
+  flex-shrink: 0;
+  flex-grow: 0;
+  z-index: 1;
+  padding: 0 12px;
+}
+
+.notes-anchors button {
+  height: 50px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--amwell-visit-console-link-color, #1774cc) !important;
+  text-decoration: underline;
+  white-space: nowrap;
+  width: 45%;
+  text-align: initial;
+  cursor: pointer;
+  margin: 0 12px;
+  padding: 12px 0 0;
+}
+
+.notes-anchors button:hover {
+  color: var(--amwell-visit-console-link-color-hover, #156bbd) !important;
+}
+
+.notes-anchors button:nth-child(3),
+.notes-anchors button:nth-child(4) {
+  border-top: solid 1px #d0d5da;
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+  .notes-anchors button:nth-child(3),
+  .notes-anchors button:nth-child(4) {
+    padding-top: unset;
+    padding-bottom: unset;
+  }
+
+  .notes-anchors button {
+    width: 100%;
+    padding: 12px 0;
+    border-top: solid 1px #d0d5da;
+  }
+}
+

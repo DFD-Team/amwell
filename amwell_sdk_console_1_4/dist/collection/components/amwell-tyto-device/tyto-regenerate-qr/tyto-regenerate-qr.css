@@ -1,0 +1,20 @@
+.regenerate-qr-wrapper {
+  text-align: center;
+}
+.regenerate-qr-wrapper img {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.regenerate-qr-wrapper .tyto-msg-wrapper .bolder {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08px;
+  margin-bottom: 10px;
+}
+.regenerate-qr-wrapper .tyto-msg-wrapper {
+  flex-direction: column;
+}
+.regenerate-qr-wrapper .tyto-msg-wrapper p {
+  margin: 0;
+  font-size: 14px;
+}
